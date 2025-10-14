@@ -353,6 +353,16 @@
 					</div>
 				</div>
 				<input type = 'text' type = 'hidden' style = 'display: none;' name = 'aG9uZXlwb3Q' value = ''/>
+
+				<div class = 'zcwf_col_lab' style = 'font-size:12px; font-family: Arial;'>
+						<label for = 'LEADCF8'>After Business Hours</label>
+					</div>
+					<div class = 'zcwf_col_fld'>
+						<input type = 'text' id = 'LEADCF8' aria-required = 'false' aria-label = 'LEADCF8' name = 'LEADCF8' aria-valuemax = '255' maxlength = '255'>
+						</input>
+						<div class = 'zcwf_col_help'>
+						</div>
+					</div>
 				<div class = 'zcwf_row'>
 					<div class = 'zcwf_col_lab'>
 					</div>
@@ -455,6 +465,26 @@
 									tooltip.style.display = 'none';
 								}
 							}
+
+
+
+							function markAfterBusinessHours() {
+    // Get current time in Toronto timezone
+    const torontoTime = new Date().toLocaleString("en-US", { timeZone: "America/Toronto" });
+    const now = new Date(torontoTime);
+    const hours = now.getHours(); // 0-23
+
+    // Business hours: 8 AM to 11 PM (23:00)
+    const afterBusinessHours = (hours < 8 || hours >= 23) ? "Yes" : "No";
+
+    // Set value directly in the single line text field
+    const field = document.getElementById("LEADCF8"); // Your After Business Hours field
+    if (field) {
+        field.value = afterBusinessHours;
+    }
+}
+
+             markAfterBusinessHours()
 						</script>
 						<!-- Do not remove this --- Analytics Tracking code starts -->
 						<script id = 'wf_anal' src = 'https://crm.zohopublic.in/crm/WebFormAnalyticsServeServlet?rid=ef8521ab622aa32f77c8fa070e64f283fba6fe923a70ced611ccd52751a24cf94dce9643b3060be2b4b8843d6875c78dgid8fde80e9c8e84a2a19a5d13c524b27f02465ce4c47a1ec2677d3c192b126d933gide63844f1e84f4d126345a7b5a88669cc1ad937fcf4d18d9cf0a562aa77c9e076gidadde9449bd0396c96abbdb55a8a254ad58e9877c2903920196ff5fe398e423d7&tw=56588ed1e4a5c385355952cbb29510192851916b349a76aa682b32118b03eb72'>
@@ -466,3 +496,4 @@
 </body>
 
 </html>
+
